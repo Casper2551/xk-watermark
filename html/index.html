@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>HUD Display</title>
+</head>
+<body>
+    <div id="player-count">Spillere online: 0</div>
+    <div id="time-text">Tid: 00:00</div>
+    
+    <div id="player-info">
+        <div id="player-name">Navn: </div>
+        <div id="player-job">Job: </div>
+    </div>    
+
+    <div id="logo-container">
+        <img src="logo.png" id="logo">
+    </div>
+
+    <script>
+        window.addEventListener('message', function(event) {
+    if (event.data.show) {
+        document.getElementById("time-text").style.display = "block";
+        document.getElementById("player-count").style.display = "block";
+        document.getElementById("logo-container").style.display = "block";
+        document.getElementById("player-info").style.display = "block";
+    }
+
+    if (event.data.toggle) {
+                const items = ["time-text", "player-count", "logo-container", "player-info"];
+                items.forEach(id => {
+                    const el = document.getElementById(id);
+                    el.style.display = (el.style.display === "none") ? "block" : "none";
+                });
+            }
+
+    if (event.data.playerCount !== undefined) {
+        document.getElementById("player-count").innerText = "Spillere online: " + event.data.playerCount;
+    }
+
+    if (event.data.gameTime !== undefined) {
+        document.getElementById("time-text").innerText = "Tid: " + event.data.gameTime;
+    }
+
+    if (event.data.playerName !== undefined && event.data.playerId !== undefined) {
+        document.getElementById("player-name").innerText = event.data.playerName + " | ID: " + event.data.playerId;
+    }
+
+    if (event.data.job !== undefined) {
+        document.getElementById("player-job").innerText = "Job: " + event.data.job;
+    }
+});
+
+    </script>
+</body>
+</html>
