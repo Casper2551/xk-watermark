@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+#player-count {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #9ea3a6;
+    text-shadow: 1px 1px 2px black;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    display: none;
+}
+
+#time-text {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    display: none;
+}
+
+#logo-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 9999;
+}
+
+#logo {
+    height: 80px;
+    opacity: 0.85;
+}
+
+#player-info {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    text-align: right;
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    display: none;
+}
+
+#player-name,
+#player-job {
+    margin: 2px 0;
+}
+
